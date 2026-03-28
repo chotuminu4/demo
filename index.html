@@ -2,225 +2,145 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>You're Invited</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-
+<title>Farewell Invitation</title>
 <style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    /* Floating background sparkles */
+    .sparkle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.7;
+        animation: float 6s infinite ease-in-out;
+    }
 
-body{
-font-family: 'Montserrat', sans-serif;
-color:white;
-overflow-x:hidden;
-}
+    @keyframes float {
+        0% { transform: translateY(0px); opacity: 0.5; }
+        50% { transform: translateY(-100px); opacity: 1; }
+        100% { transform: translateY(0px); opacity: 0.5; }
+    }
 
-/* background layers */
+    /* Hanging flowers */
+    .flower {
+        position: absolute;
+        top: -100px;
+        font-size: 24px;
+        animation: drop 3s ease forwards;
+    }
 
-.bg{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background-size:cover;
-background-position:center;
-transition:opacity 1s ease;
-z-index:-2;
-}
+    @keyframes drop {
+        0% { transform: translateY(-200px); }
+        100% { transform: translateY(200px); }
+    }
 
-#bg1{background-image:url("https://thumbs.dreamstime.com/b/close-up-water-drop-nice-green-bg-color-22006770.jpg");opacity:1;}
-#bg2{background-image:url("https://w0.peakpx.com/wallpaper/267/818/HD-wallpaper-best-background-backgrounds-nice.jpg");opacity:0;}
-#bg3{background-image:url("https://wallpapers.com/images/featured/nice-background-61m89tafknmauh0h.jpg");opacity:0;}
+    .string {
+        position: absolute;
+        width: 2px;
+        height: 200px;
+        background: #444;
+        top: 0;
+    }
 
-/* overlay */
+    /* Center invitation card */
+    .card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 0 30px rgba(0,0,0,0.2);
+        animation: pop 2s ease forwards 1s;
+    }
 
-.overlay{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.6));
-z-index:-1;
-}
+    @keyframes pop {
+        0% { transform: translate(-50%, -50%) scale(0); }
+        100% { transform: translate(-50%, -50%) scale(1); }
+    }
 
-/* sections */
+    h1 {
+        color: #d6336c;
+        margin-bottom: 10px;
+    }
 
-.section{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-}
+    h2 {
+        color: #444;
+    }
 
-/* text styles */
+    p {
+        color: #555;
+        font-size: 18px;
+    }
 
-h1{
-font-family:'Playfair Display',serif;
-font-size:60px;
-letter-spacing:3px;
-margin-bottom:20px;
-animation:fadeUp 1.5s ease;
-}
+    .date {
+        font-size: 22px;
+        font-weight: bold;
+        color: #c2185b;
+        margin-top: 15px;
+    }
 
-h2{
-font-weight:300;
-font-size:28px;
-letter-spacing:2px;
-animation:fadeUp 2s ease;
-}
-
-p{
-margin-top:15px;
-font-size:18px;
-opacity:0.9;
-}
-
-/* button */
-
-.btn{
-display:inline-block;
-margin-top:30px;
-padding:12px 28px;
-border:1px solid white;
-border-radius:30px;
-text-decoration:none;
-color:white;
-transition:all 0.3s;
-}
-
-.btn:hover{
-background:white;
-color:black;
-}
-
-/* scroll hint */
-
-.scroll{
-position:absolute;
-bottom:30px;
-font-size:14px;
-opacity:0.8;
-animation:bounce 2s infinite;
-}
-
-/* animations */
-
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(40px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-@keyframes bounce{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(8px);}
-}
-
-/* mobile */
-
-@media(max-width:768px){
-
-h1{font-size:38px;}
-h2{font-size:22px;}
-
-}
+    /* Glow effect */
+    .card:hover {
+        box-shadow: 0 0 50px #ff6f91;
+        transition: 0.5s;
+    }
 
 </style>
 </head>
-
 <body>
 
-<div id="bg1" class="bg"></div>
-<div id="bg2" class="bg"></div>
-<div id="bg3" class="bg"></div>
-
-<div class="overlay"></div>
-
-<!-- section 1 -->
-
-<section class="section" data-bg="1">
-
-<div>
-
-<h1>You're Invited</h1>
-
-<h2>To the grand Farwell party !!!</h2>
-
-<div class="scroll">scroll ↓</div>
-
-</div>
-
-</section>
-
-<!-- section 2 -->
-
-<section class="section" data-bg="2">
-
-<div>
-
-<h1><b><i>Venue:</i></b> Sri Sarathi Institute</h1>
-
-<p>Happening on</p>
-
-<h2>24 . 03 . 2026</h2>
-
-</div>
-
-</section>
-
-<!-- section 3 -->
-
-<section class="section" data-bg="3">
-
-<div>
-
-<h1>Join Us</h1>
-
-<p>An evening of music, laughter and celebration</p>
-
-<a class="btn">Save the Date</a>
-
-</div>
-
-</section>
-
+<!-- Sparkles -->
 <script>
-
-const sections = document.querySelectorAll(".section");
-
-window.addEventListener("scroll",()=>{
-
-let scroll = window.scrollY + window.innerHeight/2;
-
-sections.forEach(sec=>{
-
-let top = sec.offsetTop;
-let height = sec.offsetHeight;
-let bg = sec.dataset.bg;
-
-if(scroll>=top && scroll<top+height){
-
-document.querySelectorAll(".bg").forEach(b=>b.style.opacity=0);
-
-document.getElementById("bg"+bg).style.opacity=1;
-
+for (let i = 0; i < 50; i++) {
+    let s = document.createElement("div");
+    s.className = "sparkle";
+    s.style.left = Math.random() * window.innerWidth + "px";
+    s.style.top = Math.random() * window.innerHeight + "px";
+    s.style.animationDuration = (Math.random() * 5 + 3) + "s";
+    document.body.appendChild(s);
 }
-
-});
-
-});
-
 </script>
+
+<!-- Hanging Flowers -->
+<script>
+for (let i = 0; i < 8; i++) {
+    let string = document.createElement("div");
+    string.className = "string";
+    string.style.left = (i * 12 + 5) + "%";
+
+    let flower = document.createElement("div");
+    flower.className = "flower";
+    flower.innerHTML = "🌸";
+    flower.style.left = (i * 12 + 5) + "%";
+
+    document.body.appendChild(string);
+    document.body.appendChild(flower);
+}
+</script>
+
+<!-- Center Invitation -->
+<div class="card">
+    <h1>🌸 Farewell Party 🌸</h1>
+    <h2>You're Invited!</h2>
+    <p>Join us as we celebrate beautiful memories</p>
+    <p>and bid a heartfelt farewell 🎓</p>
+
+    <div class="date">📅 31 March 2026</div>
+
+    <p>Welcome to all students ❤️</p>
+    <p>Let’s make this day unforgettable!</p>
+</div>
 
 </body>
 </html>
